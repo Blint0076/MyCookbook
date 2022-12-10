@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, SafeAreaView } from 'react-native';
-import Mytextinput from './components/Mytextinput';
-import Mybutton from './components/Mybutton';
+import Mytextinput from './assets/pages/components/Mytextinput';
+import Mybutton from './assets/pages/components/Mybutton';
 import { openDatabase } from 'react-native-sqlite-storage';
  
 var db = openDatabase({ name: 'UserDatabase.db' });

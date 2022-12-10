@@ -4,14 +4,14 @@ import * as React from 'react';
 import { Button, View, Text } from 'react-native';
  
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
  
-import HomeScreen from './pages/HomeScreen';
-import RegisterUser from './pages/RegisterUser';
-import UpdateUser from './pages/UpdateUser';
-import ViewUser from './pages/ViewUser';
-import ViewAllUser from './pages/ViewAllUser';
-import DeleteUser from './pages/DeleteUser';
+import HomeScreen from './assets/pages/HomeScreen';
+import RegisterUser from './assets/pages/RegisterUser';
+import UpdateUser from './assets/pages/UpdateUser';
+import ViewUser from './assets/pages/ViewUser';
+import ViewAllUser from './assets/pages/ViewAllUser';
+import DeleteUser from './assets/pages/DeleteUser';
  
 const Stack = createStackNavigator();
  
