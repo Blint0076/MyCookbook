@@ -8,11 +8,11 @@ import { createStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
  
 import HomeScreen from './assets/pages/HomeScreen';
-import RegisterUser from './assets/pages/RegisterUser';
-import UpdateUser from './assets/pages/UpdateUser';
-import ViewUser from './assets/pages/ViewUser';
-import ViewAllUser from './assets/pages/ViewAllUser';
-import DeleteUser from './assets/pages/DeleteUser';
+import RegisterUser from './assets/pages/FormEntry';
+import UpdateUser from './assets/pages/UpdateRecipe';
+import ViewUser from './assets/pages/ViewRecipe';
+import ViewAllUser from './assets/pages/ViewAllRecipe';
+import DeleteUser from './assets/pages/DeleteRecipe';
  
 const Stack = createStackNavigator();
  
@@ -27,9 +27,9 @@ const App = () => {
           options={{
             title: 'Home', //Set Header Title
             headerStyle: {
-              backgroundColor: '#f4511e', //Set Header color
+              backgroundColor: '#0a0908', //Set Header color
             },
-            headerTintColor: '#fff', //Set Header text color
+            headerTintColor: '#f2f4f3', //Set Header text color
             headerTitleStyle: {
               fontWeight: 'bold', //Set Header text style
             },
@@ -41,9 +41,9 @@ const App = () => {
           options={{
             title: 'View User', //Set Header Title
             headerStyle: {
-              backgroundColor: '#f4511e', //Set Header color
+              backgroundColor: '#0a0908', //Set Header color
             },
-            headerTintColor: '#fff', //Set Header text color
+            headerTintColor: '#f2f4f3', //Set Header text color
             headerTitleStyle: {
               fontWeight: 'bold', //Set Header text style
             },
@@ -55,9 +55,9 @@ const App = () => {
           options={{
             title: 'View Users', //Set Header Title
             headerStyle: {
-              backgroundColor: '#f4511e', //Set Header color
+              backgroundColor: '#0a0908', //Set Header color
             },
-            headerTintColor: '#fff', //Set Header text color
+            headerTintColor: '#f2f4f3', //Set Header text color
             headerTitleStyle: {
               fontWeight: 'bold', //Set Header text style
             },
@@ -69,9 +69,9 @@ const App = () => {
           options={{
             title: 'Update User', //Set Header Title
             headerStyle: {
-              backgroundColor: '#f4511e', //Set Header color
+              backgroundColor: '#0a0908', //Set Header color
             },
-            headerTintColor: '#fff', //Set Header text color
+            headerTintColor: '#f2f4f3', //Set Header text color
             headerTitleStyle: {
               fontWeight: 'bold', //Set Header text style
             },
@@ -83,9 +83,9 @@ const App = () => {
           options={{
             title: 'Register User', //Set Header Title
             headerStyle: {
-              backgroundColor: '#f4511e', //Set Header color
+              backgroundColor: '#0a0908', //Set Header color
             },
-            headerTintColor: '#fff', //Set Header text color
+            headerTintColor: '#f2f4f3', //Set Header text color
             headerTitleStyle: {
               fontWeight: 'bold', //Set Header text style
             },
@@ -97,9 +97,9 @@ const App = () => {
           options={{
             title: 'Delete User', //Set Header Title
             headerStyle: {
-              backgroundColor: '#f4511e', //Set Header color
+              backgroundColor: '#0a0908', //Set Header color
             },
-            headerTintColor: '#fff', //Set Header text color
+            headerTintColor: '#f2f4f3', //Set Header text color
             headerTitleStyle: {
               fontWeight: 'bold', //Set Header text style
             },

@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import { Text, View, Alert, SafeAreaView } from 'react-native';
-import Mytextinput from '././components/Mytextinput';
-import Mybutton from '././components/Mybutton';
+import Mytextinput from './components/Mytextinput';
+import Mybutton from './components/Mybutton';
 import { openDatabase } from 'react-native-sqlite-storage';
+//import * as SQLite from 'expo-sqlite';
  
-var db = openDatabase({ name: 'UserDatabase.db' });
+var db = openDatabase({ name: 'RecipeDatabase.db' });
  
-const DeleteUser = ({ navigation }) => {
-  let [inputUserId, setInputUserId] = useState('');
+const DeleteRecipe = ({ navigation }) => {
+  let [inputRecipeId, setInputRecipeId] = useState('');
  
-  let deleteUser = () => {
+  let deleteRecipe = () => {
     db.transaction((tx) => {
       tx.executeSql(
-        'DELETE FROM  table_user where user_id=?',
-        [inputUserId],
+        'DELETE FROM  table_recipe where user_id=?',
+        [inputRecipeId],
         (tx, results) => {
           console.log('Results', results.rowsAffected);
           if (results.rowsAffected > 0) {
             Alert.alert(
               'Success',
-              'User deleted successfully',
+              'Recipe deleted successfully',
               [
                 {
                   text: 'Ok',
@@ -29,7 +30,7 @@ const DeleteUser = ({ navigation }) => {
               { cancelable: false }
             );
           } else {
-            alert('Please insert a valid User Id');
+            alert('Please insert a valid Recipe Id');
           }
         }
       );
@@ -41,13 +42,13 @@ const DeleteUser = ({ navigation }) => {
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
           <Mytextinput
-            placeholder="Enter User Id"
+            placeholder="Enter Recipe Id"
             onChangeText={
-              (inputUserId) => setInputUserId(inputUserId)
+              (inputRecipeId) => setInputRecipeId(inputRecipeId)
             }
             style={{ padding: 10 }}
           />
-          <Mybutton title="Delete User" customClick={deleteUser} />
+          <Mybutton title="Delete Recipe" customClick={deleteRecipe} />
         </View>
         <Text
           style={{
@@ -55,7 +56,7 @@ const DeleteUser = ({ navigation }) => {
             textAlign: 'center',
             color: 'grey'
           }}>
-          Example of SQLite Database in React Native
+          Cookin' 4 Urself
         </Text>
         <Text
           style={{
@@ -63,11 +64,11 @@ const DeleteUser = ({ navigation }) => {
             textAlign: 'center',
             color: 'grey'
           }}>
-          www.aboutreact.com
+          C. Gondringer
         </Text>
       </View>
     </SafeAreaView>
   );
 };
  
-export default DeleteUser;
+export default DeleteRecipe;

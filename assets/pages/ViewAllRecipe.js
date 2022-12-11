@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, Text, View, SafeAreaView } from 'react-native';
 import { openDatabase } from 'react-native-sqlite-storage';
- 
-var db = openDatabase({ name: 'UserDatabase.db' });
+//import * as SQLite from 'expo-sqlite';
+
+var db = openDatabase({ name: 'RecipeDatabase.db' });
  
 const ViewAllUser = () => {
   let [flatListItems, setFlatListItems] = useState([]);
@@ -10,7 +11,7 @@ const ViewAllUser = () => {
   useEffect(() => {
     db.transaction((tx) => {
       tx.executeSql(
-        'SELECT * FROM table_user',
+        'SELECT * FROM table_recipe',
         [],
         (tx, results) => {
           var temp = [];
@@ -28,7 +29,7 @@ const ViewAllUser = () => {
         style={{
           height: 0.2,
           width: '100%',
-          backgroundColor: '#808080'
+          backgroundColor: '#5e503f'
         }}
       />
     );
@@ -37,19 +38,24 @@ const ViewAllUser = () => {
   let listItemView = (item) => {
     return (
       <View
-        key={item.user_id}
+        key={item.recipe_id}
         style={{ backgroundColor: 'white', padding: 20 }}>
-        <Text>Id: {item.user_id}</Text>
-        <Text>Name: {item.user_name}</Text>
-        <Text>Contact: {item.user_contact}</Text>
-        <Text>Address: {item.user_address}</Text>
+        <Text>Id: {item.recipe_id}</Text>
+        <Text>Name: {item.recipe_name}</Text>
+        <Text>Ingredient1: {item.recipe_ingredient1}</Text>
+        <Text>Quantity1: {item.recipe_quantity1}</Text>
+        <Text>Ingredient2: {item.recipe_ingredient2}</Text>
+        <Text>Quantity2: {item.recipe_quantity2}</Text>
+        <Text>Ingredient3: {item.recipe_ingredient3}</Text>
+        <Text>Quantity3: {item.recipe_quantity3}</Text>
+        <Text>Instructions: {item.recipe_instructions}</Text>
       </View>
     );
   };
  
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{ flex: 1, backgroundColor: '#f2f4f3' }}>
         <View style={{ flex: 1 }}>
           <FlatList
             data={flatListItems}
@@ -64,7 +70,7 @@ const ViewAllUser = () => {
             textAlign: 'center',
             color: 'grey'
           }}>
-          Example of SQLite Database in React Native
+          Cookin' 4 Urself
         </Text>
         <Text
           style={{
@@ -72,7 +78,7 @@ const ViewAllUser = () => {
             textAlign: 'center',
             color: 'grey'
           }}>
-          www.aboutreact.com
+          C. Gondringer
         </Text>
       </View>
     </SafeAreaView>
