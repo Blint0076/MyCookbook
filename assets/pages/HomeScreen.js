@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
-import Mybutton from './assets/pages/components/Mybutton';
-import Mytext from './assets/pages/components/Mytext';
+import Mybutton from '././components/Mybutton';
+import Mytext from '././components/Mytext';
 import { openDatabase } from 'react-native-sqlite-storage';
+import * as SQLite from 'expo-sqlite';
  
 var db = openDatabase({ name: 'UserDatabase.db' });
  
@@ -18,8 +19,7 @@ const HomeScreen = ({ navigation }) => {
             txn.executeSql('DROP TABLE IF EXISTS table_user', []);
             txn.executeSql(
               'CREATE TABLE IF NOT EXISTS table_user(user_id INTEGER PRIMARY KEY AUTOINCREMENT, user_name VARCHAR(20), user_contact INT(10), user_address VARCHAR(255))',
-              []
-            );
+              []);
           }
         }
       );
