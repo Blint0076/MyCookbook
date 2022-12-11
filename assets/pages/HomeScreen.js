@@ -27,6 +27,7 @@ const HomeScreen = ({ navigation }) => {
   }, []);
  
   return (
+    <GestureHandlerRootView>
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: '#a9927d' }}>
         <View style={{ flex: 1 }}>
@@ -70,6 +71,7 @@ const HomeScreen = ({ navigation }) => {
         </Text>
       </View>
     </SafeAreaView>
+    </GestureHandlerRootView>
   );
 };
  
