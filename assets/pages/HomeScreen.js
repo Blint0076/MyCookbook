@@ -5,6 +5,7 @@ import Mytext from '././components/Mytext';
 //import { openDatabase } from 'react-native-sqlite-storage';
 import * as SQLite from 'expo-sqlite';
 
+
 const db = SQLite.openDatabase('RecipeDatabase.db');
 
 //var db = openDatabase({ name: 'RecipeDatabase.db' });
