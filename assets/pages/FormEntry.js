@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import {  View, ScrollView,  KeyboardAvoidingView,  Alert,  SafeAreaView,  Text, } from 'react-native';
 import Mytextinput from './components/Mytextinput.js';
 import Mybutton from './components/Mybutton';
-import { openDatabase } from 'react-native-sqlite-storage';
+//import { openDatabase } from 'react-native-sqlite-storage';
+import * as SQLite from 'expo-sqlite';
+
+const db = SQLite.openDatabase('RecipeDatabase.db');
+
+//var db = openDatabase({ name: 'RecipeDatabase.db' });
  
-var db = openDatabase({ name: 'RecipeDatabase.db' });
- 
-const RegisterRecipe = ({ navigation }) => {
+const FormEntry = ({ navigation }) => {
   let [recipeName, setRecipeName] = useState('');
   let [recipe_ingredient1, setRecipeIngredient1] = useState('');
   let [recipe_quantity1, setRecipeQuantity1] = useState('');
@@ -14,9 +17,10 @@ const RegisterRecipe = ({ navigation }) => {
   let [recipe_quantity2, setRecipeQuantity2] = useState('');
   let [recipe_ingredient3, setRecipeIngredient3] = useState('');
   let [recipe_quantity3, setRecipeQuantity3] = useState('');
+  let [recipe_instructions, setRecipeInstructions] = useState('');
  
   let register_recipe = () => {
-    console.log(recipeName, recipe_ingredient1, recipe_quantity1, recipe_ingredient2, recipe_quantity2, recipe_ingredient3, recipe_quantity3);
+    console.log(recipeName, recipe_ingredient1, recipe_quantity1, recipe_ingredient2, recipe_quantity2, recipe_ingredient3, recipe_quantity3, recipe_instructions);
  
     if (!recipeName) {
       alert('Please enter recipe name');
@@ -27,23 +31,27 @@ const RegisterRecipe = ({ navigation }) => {
       return;
     }
     if (!recipe_quantity1) {
-      alert('Please fill in quantity');
+      alert('Please enter a quantity');
       return;
     }
     if (!recipe_ingredient2) {
-      alert('Please enter name of ingredient 1');
+      alert('Please enter name of ingredient 2');
       return;
     }
     if (!recipe_quantity2) {
-      alert('Please fill in quantity');
+      alert('Please enter a quantity');
       return;
     }
     if (!recipe_ingredient3) {
-      alert('Please enter name of ingredient 1');
+      alert('Please enter name of ingredient 3');
       return;
     }
     if (!recipe_quantity3) {
-      alert('Please fill in quantity');
+      alert('Please enter a quantity');
+      return;
+    }
+    if (!recipe_instructions) {
+      alert('Please enter instructions');
       return;
     }
  
@@ -101,14 +109,14 @@ const RegisterRecipe = ({ navigation }) => {
               />
               <Mytextinput
                 placeholder="Enter Ingredient"
-                onChangeText={(recipe_ingredient1) => setRecipeIngredient2(recipe_ingredient1)}
+                onChangeText={(recipe_ingredient2) => setRecipeIngredient2(recipe_ingredient2)}
                 maxLength={10}
                 keyboardType="numeric"
                 style={{ padding: 10 }}
               />
               <Mytextinput
                 placeholder="Enter Quantity"
-                onChangeText={(recipe_quantity1) => setRecipeQuantity2(recipe_quantity1)}
+                onChangeText={(recipe_quantity2) => setRecipeQuantity2(recipe_quantity2)}
                 maxLength={225}
                 numberOfLines={5}
                 multiline={true}
@@ -116,14 +124,22 @@ const RegisterRecipe = ({ navigation }) => {
               />
               <Mytextinput
                 placeholder="Enter Ingredient"
-                onChangeText={(recipe_ingredient1) => setRecipeIngredient3(recipe_ingredient1)}
+                onChangeText={(recipe_ingredient3) => setRecipeIngredient3(recipe_ingredient3)}
                 maxLength={10}
                 keyboardType="numeric"
                 style={{ padding: 10 }}
               />
               <Mytextinput
                 placeholder="Enter Quantity"
-                onChangeText={(recipe_quantity1) => setRecipeQuantity3(recipe_quantity1)}
+                onChangeText={(recipe_quantity3) => setRecipeQuantity3(recipe_quantity3)}
+                maxLength={225}
+                numberOfLines={5}
+                multiline={true}
+                style={{ textAlignVertical: 'top', padding: 10 }}
+              />
+              <Mytextinput
+                placeholder="Enter Instructions"
+                onChangeText={(recipe_instructions) => setRecipeInstructions(recipe_instructions)}
                 maxLength={225}
                 numberOfLines={5}
                 multiline={true}
@@ -154,4 +170,4 @@ const RegisterRecipe = ({ navigation }) => {
   );
 };
  
-export default RegisterRecipe;
+export default FormEntry;

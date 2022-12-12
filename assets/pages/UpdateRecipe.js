@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import {  View,  ScrollView,  KeyboardAvoidingView,  Alert,  SafeAreaView,  Text, } from 'react-native';
 import Mytextinput from './components/Mytextinput';
 import Mybutton from './components/Mybutton';
-import { openDatabase } from 'react-native-sqlite-storage';
+//import { openDatabase } from 'react-native-sqlite-storage';
+import * as SQLite from 'expo-sqlite';
+
+const db = SQLite.openDatabase('RecipeDatabase.db');
  
-var db = openDatabase({ name: 'RecipeDatabase.db' });
+//var db = openDatabase({ name: 'RecipeDatabase.db' });
  
 const UpdateRecipe = ({ navigation }) => {
   let [recipeName, setRecipeName] = useState('');

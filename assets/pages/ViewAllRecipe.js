@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, Text, View, SafeAreaView } from 'react-native';
-import { openDatabase } from 'react-native-sqlite-storage';
-//import * as SQLite from 'expo-sqlite';
+//import { openDatabase } from 'react-native-sqlite-storage';
+import * as SQLite from 'expo-sqlite';
 
-var db = openDatabase({ name: 'RecipeDatabase.db' });
+const db = SQLite.openDatabase('RecipeDatabase.db');
+
+//var db = openDatabase({ name: 'RecipeDatabase.db' });
  
 const ViewAllUser = () => {
   let [flatListItems, setFlatListItems] = useState([]);
